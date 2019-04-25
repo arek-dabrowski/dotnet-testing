@@ -8,6 +8,7 @@ namespace ASPMVC.Tests.Models
     public class ManufacturerModelTests
     {
         Manufacturer manufacturer;
+
         [SetUp]
         public void Setup()
         {
@@ -22,7 +23,7 @@ namespace ASPMVC.Tests.Models
         }
 
         [Test]
-        public void Manufacturer_ShouldValidate_IfDataAreCorrect()
+        public void Manufacturer_ShouldValidate_IfDataIsCorrect()
         {
             //Act
             var results = TestModelHelper.Validate(manufacturer);

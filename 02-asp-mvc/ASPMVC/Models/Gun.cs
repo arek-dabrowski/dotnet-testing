@@ -23,7 +23,7 @@ namespace ASPMVC.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime ProductionDate { get; set; }
 
-        [Range(1, int.MaxValue, ErrorMessage = "Select a Gun Type")]
+        [Range(1, 5, ErrorMessage = "Select a Gun Type")]
         [DisplayFormat(NullDisplayText = "Type not set")]
         public GunType Type { get; set; }
 
