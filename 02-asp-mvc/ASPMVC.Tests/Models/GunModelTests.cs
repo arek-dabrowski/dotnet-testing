@@ -2,10 +2,10 @@
 using NUnit.Framework;
 using ASPMVC.Models;
 
-namespace ASPMVC.Tests
+namespace ASPMVC.Tests.Models
 {
     [TestFixture]
-    public class GunTests
+    public class GunModelTests
     {
         Gun mygun;
         [SetUp]
