@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Globalization;
 using Microsoft.Extensions.Logging;
 using ASPMVC.Data.Migrations;
+using ASPMVC.Data.Repositories;
 
 namespace ASPMVC
 {
@@ -40,6 +41,9 @@ namespace ASPMVC
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("ASPMVCContext")));
+
+            services.AddTransient<IGunRepository, GunRepository>();
+            services.AddTransient<IManufacturerRepository, ManufacturerRepository>();
 
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddDefaultUI(UIFramework.Bootstrap4)

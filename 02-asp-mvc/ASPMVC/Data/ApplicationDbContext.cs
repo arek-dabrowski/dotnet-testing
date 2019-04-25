@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ASPMVC.Models;
 
 namespace ASPMVC.Data
 {
@@ -13,7 +14,7 @@ namespace ASPMVC.Data
         {
         }
 
-        public DbSet<ASPMVC.Models.Gun> Gun { get; set; }
-        public DbSet<ASPMVC.Models.Manufacturer> Manufacturer { get; set; }
+        public DbSet<Gun> Gun { get; set; }
+        public DbSet<Manufacturer> Manufacturer { get; set; }
     }
 }

@@ -1,62 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using ASPMVC.Models;
-using ASPMVC.Data;
+using ASPMVC.Data.Repositories;
 using Microsoft.AspNetCore.Authorization;
 
 namespace ASPMVC.Controllers
 {
     public class GunsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IGunRepository _gunRepo;
+        private readonly IManufacturerRepository _manufacturerRepo;
 
-        public GunsController(ApplicationDbContext context)
+        public GunsController(IGunRepository gunRepo, IManufacturerRepository manufacturerRepo)
         {
-            _context = context;
+            _gunRepo = gunRepo;
+            _manufacturerRepo = manufacturerRepo;
         }
 
         // GET: Guns
-        public async Task<IActionResult> Index(string gunType, string searchString)
+        public IActionResult Index(string gunType, string searchString)
         {
-            var guns = from g in _context.Gun.Include(c => c.Manufacturer).AsNoTracking()
-                select g;
+            var guns = _gunRepo.GetAll();
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                guns = guns.Where(s => s.Name.Contains(searchString));
+                guns = guns.Where(s => s.Name.Contains(searchString)).ToList();
             }
 
             if (!String.IsNullOrEmpty(gunType))
             {
-                guns = guns.Where(x => x.Type == (GunType)int.Parse(gunType));
+                guns = guns.Where(x => x.Type == (GunType)int.Parse(gunType)).ToList();
             }
 
             var gunTypeVM = new GunTypeViewModel
             {
-                Guns = await guns.ToListAsync()
+                Guns = guns.ToList()
             };
 
             return View(gunTypeVM);
         }
 
         // GET: Guns/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var gun = await _context.Gun
-                .Include(s => s.Manufacturer)
-                .AsNoTracking()
-                .SingleOrDefaultAsync(m => m.ID == id);
-
+            var gun = _gunRepo.GetById(id);
             if (gun == null)
             {
                 return NotFound();
@@ -69,7 +58,7 @@ namespace ASPMVC.Controllers
         [Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
-            GunManufacturerDropDownList();
+            ViewData["ManufacturerID"] = new SelectList(_manufacturerRepo.GetAll(), "ManufacturerID", "Name");
             return View();
         }
 
@@ -79,34 +68,28 @@ namespace ASPMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator")]
-        public async Task<IActionResult> Create([Bind("ID,Name,ProductionDate,Type,Caliber,Price,ManufacturerID")] Gun gun)
+        public IActionResult Create([Bind("ID,Name,ProductionDate,Type,Caliber,Price,ManufacturerID")] Gun gun)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(gun);
-                await _context.SaveChangesAsync();
+                _gunRepo.Add(gun);
                 return RedirectToAction(nameof(Index));
             }
 
-            GunManufacturerDropDownList(gun.ManufacturerID);
+            ViewData["ManufacturerID"] = new SelectList(_manufacturerRepo.GetAll(), "ManufacturerID", "Name", gun.ManufacturerID);
             return View(gun);
         }
 
         // GET: Guns/Edit/5
         [Authorize(Roles = "Administrator")]
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var gun = await _context.Gun.FindAsync(id);
+            var gun = _gunRepo.GetById(id);
             if (gun == null)
             {
                 return NotFound();
             }
-            GunManufacturerDropDownList(gun.ManufacturerID);
+            ViewData["ManufacturerID"] = new SelectList(_manufacturerRepo.GetAll(), "ManufacturerID", "Name", gun.ManufacturerID);
             return View(gun);
         }
 
@@ -116,7 +99,7 @@ namespace ASPMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator")]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,ProductionDate,Type,Caliber,Price,ManufacturerID")] Gun gun)
+        public IActionResult Edit(int id, [Bind("ID,Name,ProductionDate,Type,Caliber,Price,ManufacturerID")] Gun gun)
         {
             if (id != gun.ID)
             {
@@ -125,38 +108,19 @@ namespace ASPMVC.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(gun);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!GunExists(gun.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _gunRepo.Update(gun);
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["ManufacturerID"] = new SelectList(_manufacturerRepo.GetAll(), "ManufacturerID", "Name", gun.ManufacturerID);
             return View(gun);
         }
 
         // GET: Guns/Delete/5
         [Authorize(Roles = "Administrator")]
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var gun = await _context.Gun
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var gun = _gunRepo.GetById(id);
             if (gun == null)
             {
                 return NotFound();
@@ -169,26 +133,10 @@ namespace ASPMVC.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator")]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
-            var gun = await _context.Gun.FindAsync(id);
-            _context.Gun.Remove(gun);
-            await _context.SaveChangesAsync();
+            _gunRepo.Delete(id);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool GunExists(int id)
-        {
-            return _context.Gun.Any(e => e.ID == id);
-        }
-
-        // Manufacturer Dropdown List
-        private void GunManufacturerDropDownList(object selectedManufacturer = null)
-        {
-            var manufacturersQuery = from m in _context.Manufacturer
-                                   orderby m.Name
-                                   select m;
-            ViewBag.ManufacturerID = new SelectList(manufacturersQuery.AsNoTracking(), "ManufacturerID", "Name", selectedManufacturer);
         }
     }
 }
