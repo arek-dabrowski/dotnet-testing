@@ -12,7 +12,6 @@ namespace ASPMVC.Tests.Models
         [SetUp]
         public void Setup()
         {
-            //Arrange
             manufacturer = new Manufacturer()
             {
                 Name = "Colt",
