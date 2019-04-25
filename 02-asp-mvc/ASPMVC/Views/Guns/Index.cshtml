@@ -1,0 +1,85 @@
+﻿@model ASPMVC.Models.GunTypeViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Guns";
+}
+
+<h1>Index</h1>
+
+@if (SignInManager.IsSignedIn(User) && (this.User.IsInRole("Administrator")))
+{
+    <p><a asp-action="Create">Create New</a></p>
+}
+
+<form asp-controller="Guns" asp-action="Index" method="get">
+    <p>
+        <select asp-for="GunType" asp-items="Html.GetEnumSelectList<GunType>()">
+            <option value="">All</option>
+        </select>
+
+        Name: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Guns[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Guns[0].ProductionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Guns[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Guns[0].Caliber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Guns[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Guns[0].Manufacturer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Guns)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductionDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Caliber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Manufacturer.Name)
+                </td>
+                <td>
+                    @if (SignInManager.IsSignedIn(User) && (this.User.IsInRole("Administrator")))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a><text> |</text>
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a><text> |</text>
+                    }
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

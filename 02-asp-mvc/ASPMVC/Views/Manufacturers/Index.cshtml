@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ASPMVC.Models.Manufacturer>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Manufacturers";
+}
+
+<h1>Index</h1>
+
+@if (SignInManager.IsSignedIn(User) && (this.User.IsInRole("Administrator")))
+{
+<p><a asp-action="Create">Create New</a></p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Headquarters)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoundDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Headquarters)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FoundDate)
+                </td>
+                <td>
+                    @if (SignInManager.IsSignedIn(User) && (this.User.IsInRole("Administrator")))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.ManufacturerID">Edit</a><text> |</text>
+                        <a asp-action="Delete" asp-route-id="@item.ManufacturerID">Delete</a><text> |</text>
+                    }
+                    <a asp-action="Details" asp-route-id="@item.ManufacturerID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
