@@ -40,7 +40,8 @@ namespace ASPMVC
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("ASPMVCContext")));
+                //options.UseSqlite(Configuration.GetConnectionString("ASPMVCContext"))); // This is actual DB.
+                options.UseSqlite(Configuration.GetConnectionString("ASPMVCTestContext"))); // This is for testing purposes.
 
             services.AddTransient<IGunRepository, GunRepository>();
             services.AddTransient<IManufacturerRepository, ManufacturerRepository>();
