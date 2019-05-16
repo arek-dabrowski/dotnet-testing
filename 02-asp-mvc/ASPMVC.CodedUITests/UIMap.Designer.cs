@@ -232,6 +232,126 @@ namespace ASPMVC.CodedUITests
             Mouse.Click(uILogoutButton, new Point(36, 18));
         }
         
+        /// <summary>
+        /// AssertAdminIsLogged - Use 'AssertAdminIsLoggedExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void AssertAdminIsLogged()
+        {
+            #region Variable Declarations
+            HtmlHyperlink uIHelloadminaspnetHyperlink = this.UIHomePageGunServiceInWindow.UIHomePageGunServiceDocument.UIHelloadminaspnetHyperlink;
+            #endregion
+
+            // Verify that the 'InnerText' property of 'Hello admin@asp.net!' link equals 'Hello admin@asp.net!'
+            Assert.AreEqual(this.AssertAdminIsLoggedExpectedValues.UIHelloadminaspnetHyperlinkInnerText, uIHelloadminaspnetHyperlink.InnerText);
+        }
+        
+        /// <summary>
+        /// AssertAddedUSP - Use 'AssertAddedUSPExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void AssertAddedUSP()
+        {
+            #region Variable Declarations
+            HtmlCustom uIUSPCustom = this.UIDetailsGunServiceIntWindow.UIDetailsGunServiceDocument.UIUSPCustom;
+            #endregion
+
+            // Verify that the 'InnerText' property of 'USP' custom control equals 'USP '
+            Assert.AreEqual(this.AssertAddedUSPExpectedValues.UIUSPCustomInnerText, uIUSPCustom.InnerText);
+        }
+        
+        /// <summary>
+        /// AssertEditedUSP - Use 'AssertEditedUSPExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void AssertEditedUSP()
+        {
+            #region Variable Declarations
+            HtmlCustom uIItem67535Custom = this.UIDetailsGunServiceIntWindow.UIDetailsGunServiceDocument.UIItem67535Custom;
+            #endregion
+
+            // Verify that the 'InnerText' property of '$675.35' custom control equals '$675.35 '
+            Assert.AreEqual(this.AssertEditedUSPExpectedValues.UIItem67535CustomInnerText, uIItem67535Custom.InnerText);
+        }
+        
+        /// <summary>
+        /// EditExistingGun - Use 'EditExistingGunParams' to pass parameters into this method.
+        /// </summary>
+        public void EditExistingGun()
+        {
+            #region Variable Declarations
+            HtmlHyperlink uIEditHyperlink1 = this.UIGunsGunServiceInternWindow.UIGunsGunServiceDocument.UIEditHyperlink1;
+            HtmlEdit uINameEdit = this.UIGunsGunServiceInternWindow1.UIEditGunServiceDocument.UINameEdit;
+            HtmlEdit uIPriceEdit = this.UIGunsGunServiceInternWindow1.UIEditGunServiceDocument.UIPriceEdit;
+            HtmlDiv uINameReleaseDateTypeSPane = this.UIGunsGunServiceInternWindow1.UIEditGunServiceDocument.UINameReleaseDateTypeSPane;
+            HtmlInputButton uISaveButton = this.UIGunsGunServiceInternWindow1.UIEditGunServiceDocument.UISaveButton;
+            #endregion
+
+            // Click 'Edit' link
+            Mouse.Click(uIEditHyperlink1, new Point(9, 14));
+
+            // Type 'MP5-edited' in 'Name' text box
+            uINameEdit.Text = this.EditExistingGunParams.UINameEditText;
+
+            // Type '1256.22' in 'Price' text box
+            uIPriceEdit.Text = this.EditExistingGunParams.UIPriceEditText;
+
+            // Click 'Name Release Date Type -- Select' pane
+            Mouse.Click(uINameReleaseDateTypeSPane, new Point(560, 476));
+
+            // Click 'Save' button
+            Mouse.Click(uISaveButton, new Point(12, 16));
+        }
+        
+        /// <summary>
+        /// AssertEditedMP5 - Use 'AssertEditedMP5ExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void AssertEditedMP5()
+        {
+            #region Variable Declarations
+            HtmlCell uIMP5editedCell = this.UIGunsGunServiceInternWindow.UIGunsGunServiceDocument.UIItemTable.UIMP5editedCell;
+            #endregion
+
+            // Verify that the 'InnerText' property of 'MP5-edited' cell equals 'MP5-edited '
+            Assert.AreEqual(this.AssertEditedMP5ExpectedValues.UIMP5editedCellInnerText, uIMP5editedCell.InnerText);
+        }
+        
+        /// <summary>
+        /// AssertEditedMP5Price - Use 'AssertEditedMP5PriceExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void AssertEditedMP5Price()
+        {
+            #region Variable Declarations
+            HtmlCell uIItem125622Cell = this.UIGunsGunServiceInternWindow.UIGunsGunServiceDocument.UIItemTable.UIItem125622Cell;
+            #endregion
+
+            // Verify that the 'InnerText' property of '$1,256.22' cell equals '$1,256.22 '
+            Assert.AreEqual(this.AssertEditedMP5PriceExpectedValues.UIItem125622CellInnerText, uIItem125622Cell.InnerText);
+        }
+        
+        /// <summary>
+        /// AssertExistingMP5 - Use 'AssertExistingMP5ExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void AssertExistingMP5()
+        {
+            #region Variable Declarations
+            HtmlCell uIMP5Cell = this.UIGunsGunServiceInternWindow.UIGunsGunServiceDocument.UIItemTable1.UIMP5Cell;
+            #endregion
+
+            // Verify that the 'InnerText' property of 'MP5' cell equals 'MP5 '
+            Assert.AreEqual(this.AssertExistingMP5ExpectedValues.UIMP5CellInnerText, uIMP5Cell.InnerText);
+        }
+        
+        /// <summary>
+        /// AssertExistingMP5Price - Use 'AssertExistingMP5PriceExpectedValues' to pass parameters into this method.
+        /// </summary>
+        public void AssertExistingMP5Price()
+        {
+            #region Variable Declarations
+            HtmlCell uIItem199999Cell = this.UIGunsGunServiceInternWindow.UIGunsGunServiceDocument.UIItemTable1.UIItem199999Cell;
+            #endregion
+
+            // Verify that the 'InnerText' property of '$1,999.99' cell equals '$1,999.99 '
+            Assert.AreEqual(this.AssertExistingMP5PriceExpectedValues.UIItem199999CellInnerText, uIItem199999Cell.InnerText);
+        }
+        
         #region Properties
         public virtual LogInAsAdminParams LogInAsAdminParams
         {
@@ -278,6 +398,102 @@ namespace ASPMVC.CodedUITests
                     this.mEditAddedGunParams = new EditAddedGunParams();
                 }
                 return this.mEditAddedGunParams;
+            }
+        }
+        
+        public virtual AssertAdminIsLoggedExpectedValues AssertAdminIsLoggedExpectedValues
+        {
+            get
+            {
+                if ((this.mAssertAdminIsLoggedExpectedValues == null))
+                {
+                    this.mAssertAdminIsLoggedExpectedValues = new AssertAdminIsLoggedExpectedValues();
+                }
+                return this.mAssertAdminIsLoggedExpectedValues;
+            }
+        }
+        
+        public virtual AssertAddedUSPExpectedValues AssertAddedUSPExpectedValues
+        {
+            get
+            {
+                if ((this.mAssertAddedUSPExpectedValues == null))
+                {
+                    this.mAssertAddedUSPExpectedValues = new AssertAddedUSPExpectedValues();
+                }
+                return this.mAssertAddedUSPExpectedValues;
+            }
+        }
+        
+        public virtual AssertEditedUSPExpectedValues AssertEditedUSPExpectedValues
+        {
+            get
+            {
+                if ((this.mAssertEditedUSPExpectedValues == null))
+                {
+                    this.mAssertEditedUSPExpectedValues = new AssertEditedUSPExpectedValues();
+                }
+                return this.mAssertEditedUSPExpectedValues;
+            }
+        }
+        
+        public virtual EditExistingGunParams EditExistingGunParams
+        {
+            get
+            {
+                if ((this.mEditExistingGunParams == null))
+                {
+                    this.mEditExistingGunParams = new EditExistingGunParams();
+                }
+                return this.mEditExistingGunParams;
+            }
+        }
+        
+        public virtual AssertEditedMP5ExpectedValues AssertEditedMP5ExpectedValues
+        {
+            get
+            {
+                if ((this.mAssertEditedMP5ExpectedValues == null))
+                {
+                    this.mAssertEditedMP5ExpectedValues = new AssertEditedMP5ExpectedValues();
+                }
+                return this.mAssertEditedMP5ExpectedValues;
+            }
+        }
+        
+        public virtual AssertEditedMP5PriceExpectedValues AssertEditedMP5PriceExpectedValues
+        {
+            get
+            {
+                if ((this.mAssertEditedMP5PriceExpectedValues == null))
+                {
+                    this.mAssertEditedMP5PriceExpectedValues = new AssertEditedMP5PriceExpectedValues();
+                }
+                return this.mAssertEditedMP5PriceExpectedValues;
+            }
+        }
+        
+        public virtual AssertExistingMP5ExpectedValues AssertExistingMP5ExpectedValues
+        {
+            get
+            {
+                if ((this.mAssertExistingMP5ExpectedValues == null))
+                {
+                    this.mAssertExistingMP5ExpectedValues = new AssertExistingMP5ExpectedValues();
+                }
+                return this.mAssertExistingMP5ExpectedValues;
+            }
+        }
+        
+        public virtual AssertExistingMP5PriceExpectedValues AssertExistingMP5PriceExpectedValues
+        {
+            get
+            {
+                if ((this.mAssertExistingMP5PriceExpectedValues == null))
+                {
+                    this.mAssertExistingMP5PriceExpectedValues = new AssertExistingMP5PriceExpectedValues();
+                }
+                return this.mAssertExistingMP5PriceExpectedValues;
             }
         }
         
@@ -352,6 +568,18 @@ namespace ASPMVC.CodedUITests
                 return this.mUIDetailsGunServiceIntWindow;
             }
         }
+        
+        public UIGunsGunServiceInternWindow1 UIGunsGunServiceInternWindow1
+        {
+            get
+            {
+                if ((this.mUIGunsGunServiceInternWindow1 == null))
+                {
+                    this.mUIGunsGunServiceInternWindow1 = new UIGunsGunServiceInternWindow1();
+                }
+                return this.mUIGunsGunServiceInternWindow1;
+            }
+        }
         #endregion
         
         #region Fields
@@ -362,6 +590,22 @@ namespace ASPMVC.CodedUITests
         private CreateNewGunParams mCreateNewGunParams;
         
         private EditAddedGunParams mEditAddedGunParams;
+        
+        private AssertAdminIsLoggedExpectedValues mAssertAdminIsLoggedExpectedValues;
+        
+        private AssertAddedUSPExpectedValues mAssertAddedUSPExpectedValues;
+        
+        private AssertEditedUSPExpectedValues mAssertEditedUSPExpectedValues;
+        
+        private EditExistingGunParams mEditExistingGunParams;
+        
+        private AssertEditedMP5ExpectedValues mAssertEditedMP5ExpectedValues;
+        
+        private AssertEditedMP5PriceExpectedValues mAssertEditedMP5PriceExpectedValues;
+        
+        private AssertExistingMP5ExpectedValues mAssertExistingMP5ExpectedValues;
+        
+        private AssertExistingMP5PriceExpectedValues mAssertExistingMP5PriceExpectedValues;
         
         private UITawitrynaniejestbezpWindow mUITawitrynaniejestbezpWindow;
         
@@ -374,6 +618,8 @@ namespace ASPMVC.CodedUITests
         private UICreateGunServiceInteWindow mUICreateGunServiceInteWindow;
         
         private UIDetailsGunServiceIntWindow mUIDetailsGunServiceIntWindow;
+        
+        private UIGunsGunServiceInternWindow1 mUIGunsGunServiceInternWindow1;
         #endregion
     }
     
@@ -469,6 +715,131 @@ namespace ASPMVC.CodedUITests
         /// Type '675.35' in 'Price' text box
         /// </summary>
         public string UIPriceEditText = "675.35";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'AssertAdminIsLogged'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class AssertAdminIsLoggedExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'InnerText' property of 'Hello admin@asp.net!' link equals 'Hello admin@asp.net!'
+        /// </summary>
+        public string UIHelloadminaspnetHyperlinkInnerText = "Hello admin@asp.net!";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'AssertAddedUSP'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class AssertAddedUSPExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'InnerText' property of 'USP' custom control equals 'USP '
+        /// </summary>
+        public string UIUSPCustomInnerText = "USP ";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'AssertEditedUSP'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class AssertEditedUSPExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'InnerText' property of '$675.35' custom control equals '$675.35 '
+        /// </summary>
+        public string UIItem67535CustomInnerText = "$675.35 ";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'EditExistingGun'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class EditExistingGunParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'MP5-edited' in 'Name' text box
+        /// </summary>
+        public string UINameEditText = "MP5-edited";
+        
+        /// <summary>
+        /// Type '1256.22' in 'Price' text box
+        /// </summary>
+        public string UIPriceEditText = "1256.22";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'AssertEditedMP5'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class AssertEditedMP5ExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'InnerText' property of 'MP5-edited' cell equals 'MP5-edited '
+        /// </summary>
+        public string UIMP5editedCellInnerText = "MP5-edited ";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'AssertEditedMP5Price'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class AssertEditedMP5PriceExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'InnerText' property of '$1,256.22' cell equals '$1,256.22 '
+        /// </summary>
+        public string UIItem125622CellInnerText = "$1,256.22 ";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'AssertExistingMP5'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class AssertExistingMP5ExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'InnerText' property of 'MP5' cell equals 'MP5 '
+        /// </summary>
+        public string UIMP5CellInnerText = "MP5 ";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'AssertExistingMP5Price'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class AssertExistingMP5PriceExpectedValues
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Verify that the 'InnerText' property of '$1,999.99' cell equals '$1,999.99 '
+        /// </summary>
+        public string UIItem199999CellInnerText = "$1,999.99 ";
         #endregion
     }
     
@@ -635,6 +1006,7 @@ namespace ASPMVC.CodedUITests
             this.SearchProperties[UITestControl.PropertyNames.ClassName] = "IEFrame";
             this.WindowTitles.Add("Home Page - Gun Service");
             this.WindowTitles.Add("Guns - Gun Service");
+            this.WindowTitles.Add("Details - Gun Service");
             #endregion
         }
         
@@ -753,6 +1125,31 @@ namespace ASPMVC.CodedUITests
                 return this.mUILogoutButton;
             }
         }
+        
+        public HtmlHyperlink UIHelloadminaspnetHyperlink
+        {
+            get
+            {
+                if ((this.mUIHelloadminaspnetHyperlink == null))
+                {
+                    this.mUIHelloadminaspnetHyperlink = new HtmlHyperlink(this);
+                    #region Search Criteria
+                    this.mUIHelloadminaspnetHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.Id] = null;
+                    this.mUIHelloadminaspnetHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.Name] = null;
+                    this.mUIHelloadminaspnetHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.Target] = null;
+                    this.mUIHelloadminaspnetHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.InnerText] = "Hello admin@asp.net!";
+                    this.mUIHelloadminaspnetHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.AbsolutePath] = "/Identity/Account/Manage";
+                    this.mUIHelloadminaspnetHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Title] = "Manage";
+                    this.mUIHelloadminaspnetHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Href] = "https://localhost:5001/Identity/Account/Manage";
+                    this.mUIHelloadminaspnetHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Class] = "nav-link text-light";
+                    this.mUIHelloadminaspnetHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.ControlDefinition] = "title=\"Manage\" class=\"nav-link text-ligh";
+                    this.mUIHelloadminaspnetHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.TagInstance] = "2";
+                    this.mUIHelloadminaspnetHyperlink.WindowTitles.Add("Home Page - Gun Service");
+                    #endregion
+                }
+                return this.mUIHelloadminaspnetHyperlink;
+            }
+        }
         #endregion
         
         #region Fields
@@ -761,6 +1158,8 @@ namespace ASPMVC.CodedUITests
         private HtmlHyperlink mUIGunsHyperlink;
         
         private HtmlButton mUILogoutButton;
+        
+        private HtmlHyperlink mUIHelloadminaspnetHyperlink;
         #endregion
     }
     
@@ -1147,6 +1546,55 @@ namespace ASPMVC.CodedUITests
                 return this.mUIHomeHyperlink;
             }
         }
+        
+        public HtmlHyperlink UIEditHyperlink1
+        {
+            get
+            {
+                if ((this.mUIEditHyperlink1 == null))
+                {
+                    this.mUIEditHyperlink1 = new HtmlHyperlink(this);
+                    #region Search Criteria
+                    this.mUIEditHyperlink1.SearchProperties[HtmlHyperlink.PropertyNames.Id] = null;
+                    this.mUIEditHyperlink1.SearchProperties[HtmlHyperlink.PropertyNames.Name] = null;
+                    this.mUIEditHyperlink1.SearchProperties[HtmlHyperlink.PropertyNames.Target] = null;
+                    this.mUIEditHyperlink1.SearchProperties[HtmlHyperlink.PropertyNames.InnerText] = "Edit";
+                    this.mUIEditHyperlink1.FilterProperties[HtmlHyperlink.PropertyNames.AbsolutePath] = "/Guns/Edit/1";
+                    this.mUIEditHyperlink1.FilterProperties[HtmlHyperlink.PropertyNames.Title] = null;
+                    this.mUIEditHyperlink1.FilterProperties[HtmlHyperlink.PropertyNames.Href] = "https://localhost:5001/Guns/Edit/1";
+                    this.mUIEditHyperlink1.FilterProperties[HtmlHyperlink.PropertyNames.Class] = null;
+                    this.mUIEditHyperlink1.FilterProperties[HtmlHyperlink.PropertyNames.ControlDefinition] = "href=\"/Guns/Edit/1\"";
+                    this.mUIEditHyperlink1.FilterProperties[HtmlHyperlink.PropertyNames.TagInstance] = "8";
+                    this.mUIEditHyperlink1.WindowTitles.Add("Guns - Gun Service");
+                    #endregion
+                }
+                return this.mUIEditHyperlink1;
+            }
+        }
+        
+        public UIItemTable UIItemTable
+        {
+            get
+            {
+                if ((this.mUIItemTable == null))
+                {
+                    this.mUIItemTable = new UIItemTable(this);
+                }
+                return this.mUIItemTable;
+            }
+        }
+        
+        public UIItemTable1 UIItemTable1
+        {
+            get
+            {
+                if ((this.mUIItemTable1 == null))
+                {
+                    this.mUIItemTable1 = new UIItemTable1(this);
+                }
+                return this.mUIItemTable1;
+            }
+        }
         #endregion
         
         #region Fields
@@ -1159,6 +1607,166 @@ namespace ASPMVC.CodedUITests
         private HtmlHyperlink mUIDeleteHyperlink;
         
         private HtmlHyperlink mUIHomeHyperlink;
+        
+        private HtmlHyperlink mUIEditHyperlink1;
+        
+        private UIItemTable mUIItemTable;
+        
+        private UIItemTable1 mUIItemTable1;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIItemTable : HtmlTable
+    {
+        
+        public UIItemTable(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[HtmlTable.PropertyNames.Id] = null;
+            this.SearchProperties[HtmlTable.PropertyNames.Name] = null;
+            this.FilterProperties[HtmlTable.PropertyNames.InnerText] = "Name \r\n\r\nRelease Date \r\n\r\nType \r\n\r\nCalib";
+            this.FilterProperties[HtmlTable.PropertyNames.ControlDefinition] = "class=\"table\"";
+            this.FilterProperties[HtmlTable.PropertyNames.RowCount] = "6";
+            this.FilterProperties[HtmlTable.PropertyNames.ColumnCount] = "7";
+            this.FilterProperties[HtmlTable.PropertyNames.Class] = "table";
+            this.FilterProperties[HtmlTable.PropertyNames.TagInstance] = "1";
+            this.WindowTitles.Add("Guns - Gun Service");
+            #endregion
+        }
+        
+        #region Properties
+        public HtmlCell UIMP5editedCell
+        {
+            get
+            {
+                if ((this.mUIMP5editedCell == null))
+                {
+                    this.mUIMP5editedCell = new HtmlCell(this);
+                    #region Search Criteria
+                    this.mUIMP5editedCell.SearchProperties[HtmlCell.PropertyNames.Id] = null;
+                    this.mUIMP5editedCell.SearchProperties[HtmlCell.PropertyNames.Name] = null;
+                    this.mUIMP5editedCell.SearchProperties[HtmlCell.PropertyNames.MaxDepth] = "3";
+                    this.mUIMP5editedCell.SearchProperties[HtmlCell.PropertyNames.InnerText] = "MP5-edited ";
+                    this.mUIMP5editedCell.FilterProperties[HtmlCell.PropertyNames.ControlDefinition] = null;
+                    this.mUIMP5editedCell.FilterProperties[HtmlCell.PropertyNames.RowIndex] = "1";
+                    this.mUIMP5editedCell.FilterProperties[HtmlCell.PropertyNames.ColumnIndex] = "0";
+                    this.mUIMP5editedCell.FilterProperties[HtmlCell.PropertyNames.Class] = null;
+                    this.mUIMP5editedCell.FilterProperties[HtmlCell.PropertyNames.TagInstance] = "1";
+                    this.mUIMP5editedCell.WindowTitles.Add("Guns - Gun Service");
+                    #endregion
+                }
+                return this.mUIMP5editedCell;
+            }
+        }
+        
+        public HtmlCell UIItem125622Cell
+        {
+            get
+            {
+                if ((this.mUIItem125622Cell == null))
+                {
+                    this.mUIItem125622Cell = new HtmlCell(this);
+                    #region Search Criteria
+                    this.mUIItem125622Cell.SearchProperties[HtmlCell.PropertyNames.Id] = null;
+                    this.mUIItem125622Cell.SearchProperties[HtmlCell.PropertyNames.Name] = null;
+                    this.mUIItem125622Cell.SearchProperties[HtmlCell.PropertyNames.MaxDepth] = "3";
+                    this.mUIItem125622Cell.SearchProperties[HtmlCell.PropertyNames.InnerText] = "$1,256.22 ";
+                    this.mUIItem125622Cell.FilterProperties[HtmlCell.PropertyNames.ControlDefinition] = null;
+                    this.mUIItem125622Cell.FilterProperties[HtmlCell.PropertyNames.RowIndex] = "1";
+                    this.mUIItem125622Cell.FilterProperties[HtmlCell.PropertyNames.ColumnIndex] = "4";
+                    this.mUIItem125622Cell.FilterProperties[HtmlCell.PropertyNames.Class] = null;
+                    this.mUIItem125622Cell.FilterProperties[HtmlCell.PropertyNames.TagInstance] = "5";
+                    this.mUIItem125622Cell.WindowTitles.Add("Guns - Gun Service");
+                    #endregion
+                }
+                return this.mUIItem125622Cell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private HtmlCell mUIMP5editedCell;
+        
+        private HtmlCell mUIItem125622Cell;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIItemTable1 : HtmlTable
+    {
+        
+        public UIItemTable1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[HtmlTable.PropertyNames.Id] = null;
+            this.SearchProperties[HtmlTable.PropertyNames.Name] = null;
+            this.FilterProperties[HtmlTable.PropertyNames.InnerText] = "Name \r\n\r\nRelease Date \r\n\r\nType \r\n\r\nCalib";
+            this.FilterProperties[HtmlTable.PropertyNames.ControlDefinition] = "class=\"table\"";
+            this.FilterProperties[HtmlTable.PropertyNames.RowCount] = "5";
+            this.FilterProperties[HtmlTable.PropertyNames.ColumnCount] = "7";
+            this.FilterProperties[HtmlTable.PropertyNames.Class] = "table";
+            this.FilterProperties[HtmlTable.PropertyNames.TagInstance] = "1";
+            this.WindowTitles.Add("Guns - Gun Service");
+            #endregion
+        }
+        
+        #region Properties
+        public HtmlCell UIMP5Cell
+        {
+            get
+            {
+                if ((this.mUIMP5Cell == null))
+                {
+                    this.mUIMP5Cell = new HtmlCell(this);
+                    #region Search Criteria
+                    this.mUIMP5Cell.SearchProperties[HtmlCell.PropertyNames.Id] = null;
+                    this.mUIMP5Cell.SearchProperties[HtmlCell.PropertyNames.Name] = null;
+                    this.mUIMP5Cell.SearchProperties[HtmlCell.PropertyNames.MaxDepth] = "3";
+                    this.mUIMP5Cell.SearchProperties[HtmlCell.PropertyNames.InnerText] = "MP5 ";
+                    this.mUIMP5Cell.FilterProperties[HtmlCell.PropertyNames.ControlDefinition] = null;
+                    this.mUIMP5Cell.FilterProperties[HtmlCell.PropertyNames.RowIndex] = "1";
+                    this.mUIMP5Cell.FilterProperties[HtmlCell.PropertyNames.ColumnIndex] = "0";
+                    this.mUIMP5Cell.FilterProperties[HtmlCell.PropertyNames.Class] = null;
+                    this.mUIMP5Cell.FilterProperties[HtmlCell.PropertyNames.TagInstance] = "1";
+                    this.mUIMP5Cell.WindowTitles.Add("Guns - Gun Service");
+                    #endregion
+                }
+                return this.mUIMP5Cell;
+            }
+        }
+        
+        public HtmlCell UIItem199999Cell
+        {
+            get
+            {
+                if ((this.mUIItem199999Cell == null))
+                {
+                    this.mUIItem199999Cell = new HtmlCell(this);
+                    #region Search Criteria
+                    this.mUIItem199999Cell.SearchProperties[HtmlCell.PropertyNames.Id] = null;
+                    this.mUIItem199999Cell.SearchProperties[HtmlCell.PropertyNames.Name] = null;
+                    this.mUIItem199999Cell.SearchProperties[HtmlCell.PropertyNames.MaxDepth] = "3";
+                    this.mUIItem199999Cell.SearchProperties[HtmlCell.PropertyNames.InnerText] = "$1,999.99 ";
+                    this.mUIItem199999Cell.FilterProperties[HtmlCell.PropertyNames.ControlDefinition] = null;
+                    this.mUIItem199999Cell.FilterProperties[HtmlCell.PropertyNames.RowIndex] = "1";
+                    this.mUIItem199999Cell.FilterProperties[HtmlCell.PropertyNames.ColumnIndex] = "4";
+                    this.mUIItem199999Cell.FilterProperties[HtmlCell.PropertyNames.Class] = null;
+                    this.mUIItem199999Cell.FilterProperties[HtmlCell.PropertyNames.TagInstance] = "5";
+                    this.mUIItem199999Cell.WindowTitles.Add("Guns - Gun Service");
+                    #endregion
+                }
+                return this.mUIItem199999Cell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private HtmlCell mUIMP5Cell;
+        
+        private HtmlCell mUIItem199999Cell;
         #endregion
     }
     
@@ -1626,10 +2234,218 @@ namespace ASPMVC.CodedUITests
                 return this.mUIBacktoListHyperlink;
             }
         }
+        
+        public HtmlCustom UIUSPCustom
+        {
+            get
+            {
+                if ((this.mUIUSPCustom == null))
+                {
+                    this.mUIUSPCustom = new HtmlCustom(this);
+                    #region Search Criteria
+                    this.mUIUSPCustom.SearchProperties["TagName"] = "DD";
+                    this.mUIUSPCustom.SearchProperties["Id"] = null;
+                    this.mUIUSPCustom.SearchProperties[UITestControl.PropertyNames.Name] = null;
+                    this.mUIUSPCustom.FilterProperties["Class"] = "col-sm-10";
+                    this.mUIUSPCustom.FilterProperties["ControlDefinition"] = "class=\"col-sm-10\"";
+                    this.mUIUSPCustom.FilterProperties["InnerText"] = "USP ";
+                    this.mUIUSPCustom.FilterProperties["TagInstance"] = "1";
+                    this.mUIUSPCustom.WindowTitles.Add("Details - Gun Service");
+                    #endregion
+                }
+                return this.mUIUSPCustom;
+            }
+        }
+        
+        public HtmlCustom UIItem67535Custom
+        {
+            get
+            {
+                if ((this.mUIItem67535Custom == null))
+                {
+                    this.mUIItem67535Custom = new HtmlCustom(this);
+                    #region Search Criteria
+                    this.mUIItem67535Custom.SearchProperties["TagName"] = "DD";
+                    this.mUIItem67535Custom.SearchProperties["Id"] = null;
+                    this.mUIItem67535Custom.SearchProperties[UITestControl.PropertyNames.Name] = null;
+                    this.mUIItem67535Custom.FilterProperties["Class"] = "col-sm-10";
+                    this.mUIItem67535Custom.FilterProperties["ControlDefinition"] = "class=\"col-sm-10\"";
+                    this.mUIItem67535Custom.FilterProperties["InnerText"] = "$675.35 ";
+                    this.mUIItem67535Custom.FilterProperties["TagInstance"] = "5";
+                    this.mUIItem67535Custom.WindowTitles.Add("Details - Gun Service");
+                    #endregion
+                }
+                return this.mUIItem67535Custom;
+            }
+        }
         #endregion
         
         #region Fields
         private HtmlHyperlink mUIBacktoListHyperlink;
+        
+        private HtmlCustom mUIUSPCustom;
+        
+        private HtmlCustom mUIItem67535Custom;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIGunsGunServiceInternWindow1 : BrowserWindow
+    {
+        
+        public UIGunsGunServiceInternWindow1()
+        {
+            #region Search Criteria
+            this.SearchProperties[UITestControl.PropertyNames.Name] = "Guns - Gun Service";
+            this.SearchProperties[UITestControl.PropertyNames.ClassName] = "IEFrame";
+            this.WindowTitles.Add("Guns - Gun Service");
+            this.WindowTitles.Add("Edit - Gun Service");
+            #endregion
+        }
+        
+        public void LaunchUrl(System.Uri url)
+        {
+            this.CopyFrom(BrowserWindow.Launch(url));
+        }
+        
+        #region Properties
+        public UIEditGunServiceDocument1 UIEditGunServiceDocument
+        {
+            get
+            {
+                if ((this.mUIEditGunServiceDocument == null))
+                {
+                    this.mUIEditGunServiceDocument = new UIEditGunServiceDocument1(this);
+                }
+                return this.mUIEditGunServiceDocument;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIEditGunServiceDocument1 mUIEditGunServiceDocument;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIEditGunServiceDocument1 : HtmlDocument
+    {
+        
+        public UIEditGunServiceDocument1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[HtmlDocument.PropertyNames.Id] = null;
+            this.SearchProperties[HtmlDocument.PropertyNames.RedirectingPage] = "False";
+            this.SearchProperties[HtmlDocument.PropertyNames.FrameDocument] = "False";
+            this.FilterProperties[HtmlDocument.PropertyNames.Title] = "Edit - Gun Service";
+            this.FilterProperties[HtmlDocument.PropertyNames.AbsolutePath] = "/Guns/Edit/1";
+            this.FilterProperties[HtmlDocument.PropertyNames.PageUrl] = "https://localhost:5001/Guns/Edit/1";
+            this.WindowTitles.Add("Edit - Gun Service");
+            #endregion
+        }
+        
+        #region Properties
+        public HtmlEdit UINameEdit
+        {
+            get
+            {
+                if ((this.mUINameEdit == null))
+                {
+                    this.mUINameEdit = new HtmlEdit(this);
+                    #region Search Criteria
+                    this.mUINameEdit.SearchProperties[HtmlEdit.PropertyNames.Id] = "Name";
+                    this.mUINameEdit.SearchProperties[HtmlEdit.PropertyNames.Name] = "Name";
+                    this.mUINameEdit.FilterProperties[HtmlEdit.PropertyNames.LabeledBy] = "Name";
+                    this.mUINameEdit.FilterProperties[HtmlEdit.PropertyNames.Type] = "SINGLELINE";
+                    this.mUINameEdit.FilterProperties[HtmlEdit.PropertyNames.Title] = null;
+                    this.mUINameEdit.FilterProperties[HtmlEdit.PropertyNames.Class] = "form-control";
+                    this.mUINameEdit.FilterProperties[HtmlEdit.PropertyNames.ControlDefinition] = "name=\"Name\" class=\"form-control\" id=\"Nam";
+                    this.mUINameEdit.FilterProperties[HtmlEdit.PropertyNames.TagInstance] = "3";
+                    this.mUINameEdit.WindowTitles.Add("Edit - Gun Service");
+                    #endregion
+                }
+                return this.mUINameEdit;
+            }
+        }
+        
+        public HtmlEdit UIPriceEdit
+        {
+            get
+            {
+                if ((this.mUIPriceEdit == null))
+                {
+                    this.mUIPriceEdit = new HtmlEdit(this);
+                    #region Search Criteria
+                    this.mUIPriceEdit.SearchProperties[HtmlEdit.PropertyNames.Id] = "Price";
+                    this.mUIPriceEdit.SearchProperties[HtmlEdit.PropertyNames.Name] = "Price";
+                    this.mUIPriceEdit.FilterProperties[HtmlEdit.PropertyNames.LabeledBy] = "Price";
+                    this.mUIPriceEdit.FilterProperties[HtmlEdit.PropertyNames.Type] = "SINGLELINE";
+                    this.mUIPriceEdit.FilterProperties[HtmlEdit.PropertyNames.Title] = null;
+                    this.mUIPriceEdit.FilterProperties[HtmlEdit.PropertyNames.Class] = "form-control";
+                    this.mUIPriceEdit.FilterProperties[HtmlEdit.PropertyNames.ControlDefinition] = "name=\"Price\" class=\"form-control\" id=\"Pr";
+                    this.mUIPriceEdit.FilterProperties[HtmlEdit.PropertyNames.TagInstance] = "6";
+                    this.mUIPriceEdit.WindowTitles.Add("Edit - Gun Service");
+                    #endregion
+                }
+                return this.mUIPriceEdit;
+            }
+        }
+        
+        public HtmlDiv UINameReleaseDateTypeSPane
+        {
+            get
+            {
+                if ((this.mUINameReleaseDateTypeSPane == null))
+                {
+                    this.mUINameReleaseDateTypeSPane = new HtmlDiv(this);
+                    #region Search Criteria
+                    this.mUINameReleaseDateTypeSPane.SearchProperties[HtmlDiv.PropertyNames.Id] = null;
+                    this.mUINameReleaseDateTypeSPane.SearchProperties[HtmlDiv.PropertyNames.Name] = null;
+                    this.mUINameReleaseDateTypeSPane.FilterProperties[HtmlDiv.PropertyNames.InnerText] = "Name  \r\nRelease Date  \r\nType \r\n-- Select";
+                    this.mUINameReleaseDateTypeSPane.FilterProperties[HtmlDiv.PropertyNames.Title] = null;
+                    this.mUINameReleaseDateTypeSPane.FilterProperties[HtmlDiv.PropertyNames.Class] = "row";
+                    this.mUINameReleaseDateTypeSPane.FilterProperties[HtmlDiv.PropertyNames.ControlDefinition] = "class=\"row\"";
+                    this.mUINameReleaseDateTypeSPane.FilterProperties[HtmlDiv.PropertyNames.TagInstance] = "6";
+                    this.mUINameReleaseDateTypeSPane.WindowTitles.Add("Edit - Gun Service");
+                    #endregion
+                }
+                return this.mUINameReleaseDateTypeSPane;
+            }
+        }
+        
+        public HtmlInputButton UISaveButton
+        {
+            get
+            {
+                if ((this.mUISaveButton == null))
+                {
+                    this.mUISaveButton = new HtmlInputButton(this);
+                    #region Search Criteria
+                    this.mUISaveButton.SearchProperties[HtmlButton.PropertyNames.Id] = null;
+                    this.mUISaveButton.SearchProperties[HtmlButton.PropertyNames.Name] = null;
+                    this.mUISaveButton.SearchProperties[HtmlButton.PropertyNames.DisplayText] = "Save";
+                    this.mUISaveButton.SearchProperties[HtmlButton.PropertyNames.Type] = "submit";
+                    this.mUISaveButton.FilterProperties[HtmlButton.PropertyNames.Title] = null;
+                    this.mUISaveButton.FilterProperties[HtmlButton.PropertyNames.Class] = "btn btn-primary";
+                    this.mUISaveButton.FilterProperties[HtmlButton.PropertyNames.ControlDefinition] = "class=\"btn btn-primary\" type=\"submit\" va";
+                    this.mUISaveButton.FilterProperties[HtmlButton.PropertyNames.TagInstance] = "7";
+                    this.mUISaveButton.WindowTitles.Add("Edit - Gun Service");
+                    #endregion
+                }
+                return this.mUISaveButton;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private HtmlEdit mUINameEdit;
+        
+        private HtmlEdit mUIPriceEdit;
+        
+        private HtmlDiv mUINameReleaseDateTypeSPane;
+        
+        private HtmlInputButton mUISaveButton;
         #endregion
     }
 }

@@ -30,20 +30,47 @@ namespace ASPMVC.CodedUITests
             bw.CloseOnPlaybackCleanup = false;
         }
 
-        [TestMethod]
-        public void CodedUITestMethod1()
+        [TestInitialize]
+        public void SetUp()
         {
             this.UIMap.InitIndexPage();
             this.UIMap.LogInAsAdmin();
+        }
+
+        [TestMethod]
+        public void CodedUITestCreate()
+        {
+            this.UIMap.AssertAdminIsLogged();
             this.UIMap.GoToGunsSection();
             this.UIMap.GoToCreateNew();
             this.UIMap.CreateNewGun();
             this.UIMap.CheckAddedGunDetails();
+            this.UIMap.AssertAddedUSP();
             this.UIMap.GoBackToGuns();
             this.UIMap.EditAddedGun();
+            this.UIMap.CheckAddedGunDetails();
+            this.UIMap.AssertEditedUSP();
+            this.UIMap.GoBackToGuns();
             this.UIMap.DeleteAddedGun();
-            this.UIMap.GoBackToIndexAndLogout();
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
+        }
+
+        [TestMethod]
+        public void CodedUITestEdit()
+        {
+            this.UIMap.AssertAdminIsLogged();
+            this.UIMap.GoToGunsSection();
+            this.UIMap.AssertExistingMP5();
+            this.UIMap.AssertExistingMP5Price();
+            this.UIMap.EditExistingGun();
+            this.UIMap.AssertEditedMP5();
+            this.UIMap.AssertEditedMP5Price();
+        }
+
+        [TestCleanup]
+        public void CleanUp()
+        {
+            this.UIMap.GoBackToIndexAndLogout();
         }
 
         #region Additional test attributes
