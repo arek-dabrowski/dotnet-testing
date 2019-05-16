@@ -33,7 +33,7 @@ namespace ASPMVC.CodedUITests
         [TestInitialize]
         public void SetUp()
         {
-            this.UIMap.InitIndexPage();
+            //this.UIMap.InitIndexPage();
             this.UIMap.LogInAsAdmin();
         }
 
