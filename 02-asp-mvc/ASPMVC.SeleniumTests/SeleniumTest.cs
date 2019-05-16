@@ -6,7 +6,7 @@ using System;
 namespace ASPMVC.SeleniumTests
 {
     [TestFixture]
-    public class PatientsViewTest
+    public class SeleniumTest
     {
         private static string NAME = "Lucznik";
         private static string COUNTRY = "Poland";

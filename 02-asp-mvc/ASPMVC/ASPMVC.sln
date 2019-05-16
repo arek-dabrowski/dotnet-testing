@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPMVC.Tests", "..\ASPMVC.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPMVC.CodedUITests", "..\ASPMVC.CodedUITests\ASPMVC.CodedUITests.csproj", "{90461262-D53C-4B0F-A5CA-1AFEE82448F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPMVC.SeleniumTests", "..\ASPMVC.SeleniumTests\ASPMVC.SeleniumTests\ASPMVC.SeleniumTests.csproj", "{E909C82B-3856-4291-BE9D-E60D697C1E42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPMVC.SeleniumTests", "..\ASPMVC.SeleniumTests\ASPMVC.SeleniumTests.csproj", "{1E65CF1E-460F-437D-B1BE-F959D97DE216}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{90461262-D53C-4B0F-A5CA-1AFEE82448F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90461262-D53C-4B0F-A5CA-1AFEE82448F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90461262-D53C-4B0F-A5CA-1AFEE82448F6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E909C82B-3856-4291-BE9D-E60D697C1E42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E909C82B-3856-4291-BE9D-E60D697C1E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E909C82B-3856-4291-BE9D-E60D697C1E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E909C82B-3856-4291-BE9D-E60D697C1E42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E65CF1E-460F-437D-B1BE-F959D97DE216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E65CF1E-460F-437D-B1BE-F959D97DE216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E65CF1E-460F-437D-B1BE-F959D97DE216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E65CF1E-460F-437D-B1BE-F959D97DE216}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
